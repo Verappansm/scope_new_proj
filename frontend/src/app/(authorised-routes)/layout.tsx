@@ -12,8 +12,6 @@ import {
 import Link from "next/link";
 import axios from "axios";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Card } from "@/components/ui/card";
-import { CircleIcon } from "lucide-react";
 import { UserAccountPopover } from "@/components/UserAccountPopover";
 
 interface UserInfo {
@@ -62,7 +60,7 @@ const AuthorizedLayout = ({ children }: { children: ReactNode }) => {
         <div>
           {/* TODO: add username modal here */}
           <UserAccountPopover
-            userInfo={userInfo}
+            userInfo={userInfo!}
           />
         </div>
       </div>
