@@ -52,7 +52,7 @@ export default function DraftEdit({ draftId }: DraftViewProps) {
   const draftNameRef = useRef<HTMLInputElement>(null);
   const teacherSelectionsRef = useRef(teacherSelections);
 
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
   const [filterActive, setFilterActive] = useState(false);
   const [filterBy, setFilterBy] = useState<FieldKey>("sNo");
   const [filterValue, setFilterValue] = useState("");
@@ -87,14 +87,14 @@ export default function DraftEdit({ draftId }: DraftViewProps) {
   const processedRecords = useMemo(() => {
     let records: Record[] = draft?.records || [];
 
-    if (searchQuery.trim() !== "") {
-      const q = searchQuery.toLowerCase();
-      records = records.filter(
-        (record) =>
-          record.courseTitle.toLowerCase().includes(q) ||
-          record.courseCode.toString().includes(q)
-      );
-    }
+    // if (searchQuery.trim() !== "") {
+    //   const q = searchQuery.toLowerCase();
+    //   records = records.filter(
+    //     (record) =>
+    //       record.courseTitle.toLowerCase().includes(q) ||
+    //       record.courseCode.toString().includes(q)
+    //   );
+    // }
 
     if (filterActive && filterValue !== "") {
       records = records.filter((record) => {
@@ -119,7 +119,7 @@ export default function DraftEdit({ draftId }: DraftViewProps) {
     return records;
   }, [
     draft?.records,
-    searchQuery,
+    // searchQuery,
     sortBy,
     sortDirection,
     filterBy,
